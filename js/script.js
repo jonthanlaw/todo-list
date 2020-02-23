@@ -63,13 +63,14 @@ const formSubmitted = e => {
 const editToDo = e => {
   // Container for to do item
 
-  let itemContainer = e.target.parentNode.parentNode;
+  let itemContainer = e.target.parentNode.parentNode.parentNode;
+
   //add update form for to do item
   itemContainer.innerHTML += update;
 
   //add event listener
 
-  const updateForm = itemContainer.children[2];
+  const updateForm = itemContainer.children[1];
 
   submitBtn = updateForm.children[1];
 
@@ -92,10 +93,10 @@ const formUpdated = e => {
   let updateItem = updateText.value;
 
   // Change to do item to the new text
-  let todoContainer = e.target.parentNode.parentNode;
-  todoContainer.firstElementChild.textContent = updateItem
+  let todoContainer = formContainer.parentNode;
+  todoContainer.firstElementChild.firstElementChild.textContent = updateItem
   // //Add back event listener for the button
-  e.target.parentNode.parentNode.children[1].addEventListener('click', editToDo);
+  todoContainer.firstElementChild.children[1].addEventListener('click', editToDo);
   //
   // // Remove Form
   e.target.parentNode.remove();
