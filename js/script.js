@@ -13,9 +13,9 @@ const formSubmitted = (e) => {
     //Containing Div for task and task editor
     toDoDiv += '<div class ="row">'
     toDoDiv += '<span class="">' + itemToAdd + '</span>';
-    toDoDiv += '<span class="todo__editor" onClick="deleteToDo()">'
-    + '<i class="fa fa-pencil"></i>'
-    + '</span>';
+    toDoDiv += '<span class="todo__editor">' +
+      '<i class="fa fa-pencil"></i>' +
+      '</span>';
     // Closing Div
     toDoDiv += rightToDoDiv;
 
@@ -24,6 +24,10 @@ const formSubmitted = (e) => {
 
     // Append new todo item
     todoContainer.innerHTML += toDoDiv;
+
+    // Add event listeners for the new buttons
+    let editor = document.querySelectorAll('.todo__editor');
+    editor.forEach(element => element.addEventListener('click', editToDo));
   }
   // If length less then 3, give error
   else {
@@ -36,13 +40,10 @@ const formSubmitted = (e) => {
 }
 
 
-const deleteToDo = (e) => {
+const editToDo = (e) => {
 
   console.log(e.target)
 }
-
-
-
 
 
 
@@ -56,8 +57,7 @@ const form = document.querySelector('.todo__form');
 const todoContainer = document.querySelector('.todo__itemcontainer');
 const leftToDoDiv = '<div class = ' + '"col-12 col-sm-6 col-md-4 col-lg-3 toDoDiv">';
 const rightToDoDiv = '</div>';
-let edit = "";
-console.log(edit);
+
 
 // Event listeners
 form.addEventListener('submit', formSubmitted);
