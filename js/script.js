@@ -12,10 +12,12 @@ const formSubmitted = e => {
 
     //Containing Div for task and task editor
     toDoDiv += '<div class ="row">'
+      toDoDiv += '<div>';
     toDoDiv += '<span class="todo__item" >' + itemToAdd + '</span>';
     toDoDiv += '<span class="todo__editor">' +
       '<i class="fa fa-pencil"></i>' +
       '</span>';
+        toDoDiv += '</div>';
     // Closing Div
     toDoDiv += rightToDoDiv;
 
@@ -34,7 +36,7 @@ const formSubmitted = e => {
       if (!todo.outerHTML.includes("updateForm")) {
 
 
-        let editButton = todo.firstElementChild.children[1];
+        let editButton = todo.firstElementChild.firstElementChild.children[1];
         editButton.addEventListener('click', editToDo);
       }
 
