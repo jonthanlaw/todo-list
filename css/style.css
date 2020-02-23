@@ -1,11 +1,14 @@
 body {
   background-image: url("../background/background.jpg");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
 }
 
 #todo__additem, #todo__submit {
   width: 100%;
+}
+
+.toDoDiv {
+  border: 1px solid black;
+  height: 10rem;
 }
 
 /*# sourceMappingURL=style.css.map */
