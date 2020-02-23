@@ -11,4 +11,13 @@ body {
   height: 10rem;
 }
 
+.todo__task {
+  height: 1rem;
+}
+
+.todo__img {
+  height: 1rem;
+  width: 1rem;
+}
+
 /*# sourceMappingURL=style.css.map */
