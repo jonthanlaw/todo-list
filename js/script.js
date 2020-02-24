@@ -1,3 +1,28 @@
+
+// Handle Complete All Clicks
+const completeAllHandler = e => {
+  e.preventDefault
+
+  //Get all incomplete todos
+  incompleteToDo = document.querySelectorAll('.btn--complete');
+
+  //Click all incomplete todos
+    for (completeMe of incompleteToDo){
+      completeMe.click();
+    }
+}
+
+const removeAllHandler = e => {
+  e.preventDefault
+
+  //Get all incomplete todos
+  removeToDo = document.querySelectorAll('.btn--remove');
+
+  //Click all incomplete todos
+    for (removeMe of removeToDo){
+      removeMe.click();
+    }
+}
 // form submitted handler
 const formSubmitted = e => {
   e.preventDefault();
@@ -5,6 +30,18 @@ const formSubmitted = e => {
 
   // If length 3 or greater, append item
   if (itemToAdd.length >= 3) {
+    // // Add complete all and remove all button
+    // if (document.querySelector('.btn--completeAll') === null){
+    //   let btnContainer = document.querySelector('.btn--Container');
+    //   btnContainer.innerHTML += com_del_btn;
+    //
+    //   //Add Event Listener for complete all and remove all button
+    //   completeAllBtn = document.querySelector('.btn--completeAll');
+    //   removeAllBtn = document.querySelector('.btn--removeAll');
+    //
+    //   completeAllBtn.addEventListener('click', completeAllHandler);
+    // }
+
     form.reset();
     let toDoDiv = '';
     //Main containing Div
@@ -97,8 +134,6 @@ const formSubmitted = e => {
     // todoContainer.innerHTML += toDoDiv;
   }
 }
-
-
 
 
 //  Event handler when pencil clicked - to edit to do item
@@ -229,6 +264,10 @@ const removeHandler = e => {
 const form = document.querySelector('.todo__form');
 const todoContainer = document.querySelector('.todo__itemcontainer');
 
+// Complete all and delete all button
+const com_del_btn = '<button class = "d-block col col-m-6 btn btn--completeAll">Mark All Complete</button>'
++ '<button class = "d-block col col-m-6 btn btn--removeAll">Remove All</button>';
+
 //Surrounding container for each to do item
 const leftToDoDiv = '<div class = ' + '"col-12 col-sm-6 col-md-4 col-lg-3 toDoDiv">';
 const rightToDoDiv = '</div>';
@@ -254,7 +293,15 @@ const monthNames = ["January", "February", "March", "April", "May", "June",
 ];
 
 
+// Add complete all and remove all button
+  let btnContainer = document.querySelector('.btn--Container');
+  btnContainer.innerHTML += com_del_btn;
 
+  //Add Event Listener for complete all and remove all button
+  completeAllBtn = document.querySelector('.btn--completeAll');
+  removeAllBtn = document.querySelector('.btn--removeAll');
 
+  completeAllBtn.addEventListener('click', completeAllHandler);
+  removeAllBtn.addEventListener('click', removeAllHandler);
 // Event listeners
 form.addEventListener('submit', formSubmitted);
