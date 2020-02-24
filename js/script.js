@@ -29,7 +29,19 @@ const formSubmitted = e => {
     toDoDiv += rightToDoDiv;
 
     //Add form container
-    toDoDiv += '<div class="updateForm"></div>'
+    toDoDiv += '<div class="updateForm"></div>';
+
+    //Add timestamp
+    let d = new Date();
+    toDoDiv += '<p>' + 'Created on: ' + dayNames[d.getDay()] + ", " + monthNames[d.getMonth()] +
+      " " + d.getDate() + " " + d.getFullYear() + ", " + d.getHours() + ":" +
+      d.getMinutes() + ":" + d.getSeconds() + '</p>';
+
+    // Add Container for complete time
+
+    toDoDiv += "<div></div>";
+
+
     //Main Container closing div
     toDoDiv += rightToDoDiv;
 
@@ -68,6 +80,10 @@ const formSubmitted = e => {
       uncomplete.addEventListener('click', uncompleteHandler);
     }
 
+    let removeBtn = document.querySelectorAll('.btn--remove');
+    for (removeMe of removeBtn) {
+      removeMe.addEventListener('click', removeHandler);
+    }
   }
   // End of container for if length greater then 3
 
@@ -153,6 +169,16 @@ const formUpdated = e => {
 const completeHandler = (e) => {
   //Remove event listener
   e.target.removeEventListener('click', completeHandler);
+  //Set parent Container
+  let parentContainer = e.target.parentNode.parentNode.parentNode.parentNode;
+
+  //set d = current date and time
+  let d = new Date();
+
+  //Set complete time
+  parentContainer.children[3].innerHTML = '<p>' + 'Completed on: ' + dayNames[d.getDay()] + ", " + monthNames[d.getMonth()] +
+    " " + d.getDate() + " " + d.getFullYear() + ", " + d.getHours() + ":" +
+    d.getMinutes() + ":" + d.getSeconds() + '</p>';
 
   //change to toggle button
   e.target.classList.remove('fa-check');
@@ -176,9 +202,27 @@ const uncompleteHandler = (e) => {
   e.target.classList.add('fa-check');
   e.target.classList.add('btn--complete');
 
+  //Set parent Container
+  let parentContainer = e.target.parentNode.parentNode.parentNode.parentNode;
+
+  //remove complete time
+  parentContainer.children[3].innerHTML = "";
+
   // Add event listener for check
   e.target.addEventListener('click', completeHandler);
 }
+
+
+
+// Handler for removing to do item
+
+const removeHandler = e => {
+  e.target.removeEventListener('click', removeHandler);
+
+  // Remove to do item
+  e.target.parentNode.parentNode.parentNode.parentNode.remove();
+}
+
 
 
 // form set to add to do button
@@ -192,14 +236,22 @@ const rightToDoDiv = '</div>';
 
 // Add complete and remove button
 const complete = '<div class = "col-3"><span><i class="fa fa-check btn--complete"></i></span>';
-const remove = '<span><i class="fa fa-times"></i></span></div>';
+const remove = '<span><i class="fa fa-times btn--remove"></i></span></div>';
 
 
 // Form for updating todo item when pencil clicked
 const update = '<input class="todo__updateText" type="text">' +
   '<button  class="todo__updateSubmit">Update</button>';
 
+// Set Day names
+const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday",
+  "Friday", "Saturday"
+];
 
+// Set month names
+const monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
 
 
 
