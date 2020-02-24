@@ -265,8 +265,8 @@ const form = document.querySelector('.todo__form');
 const todoContainer = document.querySelector('.todo__itemcontainer');
 
 // Complete all and delete all button
-const com_del_btn = '<button class = "d-block col col-m-6 btn btn--completeAll">Mark All Complete</button>'
-+ '<button class = "d-block col col-m-6 btn btn--removeAll">Remove All</button>';
+const com_del_btn = '<button class = "col-12 col-md-6 btn btn--completeAll">Mark All Complete</button>'
++ '<button class = "col-12 col-md-6 btn btn--removeAll">Remove All</button>';
 
 //Surrounding container for each to do item
 const leftToDoDiv = '<div class = ' + '"col-12 col-sm-6 col-md-4 col-lg-3 toDoDiv">';
