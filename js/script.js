@@ -12,12 +12,12 @@ const formSubmitted = e => {
 
     //Containing Div for task and task editor
     toDoDiv += '<div class ="row">'
-      toDoDiv += '<div>';
+    toDoDiv += '<div>';
     toDoDiv += '<span class="todo__item" >' + itemToAdd + '</span>';
     toDoDiv += '<span class="todo__editor">' +
       '<i class="fa fa-pencil"></i>' +
       '</span>';
-        toDoDiv += '</div>';
+    toDoDiv += '</div>';
     // Closing Div
     toDoDiv += rightToDoDiv;
 
@@ -42,10 +42,8 @@ const formSubmitted = e => {
 
       //fix bug where click event disapears
       else {
-
-        let todo_w_updateform = document.querySelectorAll('.todo__updateSubmit');
-        todo_w_updateform.forEach(element => element.addEventListener('click', formUpdated));
-
+        //Add event listner for update button
+        todo.children[1].children[1].addEventListener('click', formUpdated);
       }
     }
 
@@ -63,9 +61,11 @@ const formSubmitted = e => {
 
 //  Event handler when pencil clicked - to edit to do item
 const editToDo = e => {
+  //Remove event listner for this button
+  //  e.target.removeEventListener('click', editToDo);
   // Container for to do item
 
-  let itemContainer = e.target.parentNode.parentNode.parentNode;
+  let itemContainer = e.target.parentNode.parentNode.parentNode.parentNode;
 
   //add update form for to do item
   itemContainer.innerHTML += update;
@@ -83,8 +83,10 @@ const editToDo = e => {
 
 // Event handler when updating to do item text
 const formUpdated = e => {
+  //prevent default behaviors
   e.preventDefault;
-
+  //Remove event listener for this button
+  e.target.removeEventListener('click', formUpdated);
   //Container for form
   let formContainer = e.target.parentNode;
   //
@@ -96,10 +98,13 @@ const formUpdated = e => {
 
   // Change to do item to the new text
   let todoContainer = formContainer.parentNode;
-  todoContainer.firstElementChild.firstElementChild.textContent = updateItem
+
+  // Set new text in todo
+  todoContainer.firstElementChild.firstElementChild.firstElementChild.textContent = updateItem;
+
   // //Add back event listener for the button
-  todoContainer.firstElementChild.children[1].addEventListener('click', editToDo);
-  //
+  todoContainer.firstElementChild.firstElementChild.children[1].addEventListener('click', editToDo);
+
   // // Remove Form
   e.target.parentNode.remove();
   // // Add Event Listeners so  edit button can be pushed again
