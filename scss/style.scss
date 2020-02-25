@@ -1,8 +1,23 @@
 
+$bg-color: #DAD7CD;
+$title-text-color:#A3B18A;
+$btn-main: #A3B18A;
+$text-color:#2E3532;
+
 body{
-background-image: url("../background/background.jpg");
+  background-color:$bg-color;
+//background-image: url("../background/background.jpg");
 
 
+}
+
+.title-text-main{
+  color: $title-text-color;
+}
+
+.btn-main{
+
+    background-color: $btn-main;
 }
 
 
@@ -12,7 +27,7 @@ background-image: url("../background/background.jpg");
 
 
 .toDoDiv{
-
+color: $text-color;
 }
 
 .todo__task{

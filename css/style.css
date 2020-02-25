@@ -1,9 +1,21 @@
 body {
-  background-image: url("../background/background.jpg");
+  background-color: #DAD7CD;
+}
+
+.title-text-main {
+  color: #A3B18A;
+}
+
+.btn-main {
+  background-color: #A3B18A;
 }
 
 #todo__additem, #todo__submit {
   width: 100%;
+}
+
+.toDoDiv {
+  color: #2E3532;
 }
 
 .todo__task {

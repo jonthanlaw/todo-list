@@ -1,4 +1,3 @@
-
 // Handle Complete All Clicks
 const completeAllHandler = e => {
   e.preventDefault
@@ -7,9 +6,9 @@ const completeAllHandler = e => {
   incompleteToDo = document.querySelectorAll('.btn--complete');
 
   //Click all incomplete todos
-    for (completeMe of incompleteToDo){
-      completeMe.click();
-    }
+  for (completeMe of incompleteToDo) {
+    completeMe.click();
+  }
 }
 
 const removeAllHandler = e => {
@@ -19,9 +18,9 @@ const removeAllHandler = e => {
   removeToDo = document.querySelectorAll('.btn--remove');
 
   //Click all incomplete todos
-    for (removeMe of removeToDo){
-      removeMe.click();
-    }
+  for (removeMe of removeToDo) {
+    removeMe.click();
+  }
 }
 // form submitted handler
 const formSubmitted = e => {
@@ -206,7 +205,8 @@ const completeHandler = (e) => {
   e.target.removeEventListener('click', completeHandler);
   //Set parent Container
   let parentContainer = e.target.parentNode.parentNode.parentNode.parentNode;
-
+  //set complete color;
+  parentContainer.style.backgroundColor = '#A3BFA8';
   //set d = current date and time
   let d = new Date();
 
@@ -239,7 +239,8 @@ const uncompleteHandler = (e) => {
 
   //Set parent Container
   let parentContainer = e.target.parentNode.parentNode.parentNode.parentNode;
-
+  //Set incomplete color
+  parentContainer.style.backgroundColor = '#DAD7CD';
   //remove complete time
   parentContainer.children[3].innerHTML = "";
 
@@ -265,8 +266,8 @@ const form = document.querySelector('.todo__form');
 const todoContainer = document.querySelector('.todo__itemcontainer');
 
 // Complete all and delete all button
-const com_del_btn = '<button class = " col-12 col-sm-6 btn btn-outline-success btn--completeAll">Mark All Complete</button>'
-+ '<button class = "col-12 col-sm-6 btn btn-outline-dark btn--removeAll">Remove All</button>';
+const com_del_btn = '<button class = " col-12 col-sm-6 btn btn-outline-success btn--completeAll">Mark All Complete</button>' +
+  '<button class = "col-12 col-sm-6 btn btn-outline-dark btn--removeAll">Remove All</button>';
 
 //Surrounding container for each to do item
 const leftToDoDiv = '<div class = ' + '"border border-secondary rounded col-12 toDoDiv">';
@@ -294,14 +295,14 @@ const monthNames = ["January", "February", "March", "April", "May", "June",
 
 
 // Add complete all and remove all button
-  let btnContainer = document.querySelector('.btn--Container');
-  btnContainer.innerHTML += com_del_btn;
+let btnContainer = document.querySelector('.btn--Container');
+btnContainer.innerHTML += com_del_btn;
 
-  //Add Event Listener for complete all and remove all button
-  completeAllBtn = document.querySelector('.btn--completeAll');
-  removeAllBtn = document.querySelector('.btn--removeAll');
+//Add Event Listener for complete all and remove all button
+completeAllBtn = document.querySelector('.btn--completeAll');
+removeAllBtn = document.querySelector('.btn--removeAll');
 
-  completeAllBtn.addEventListener('click', completeAllHandler);
-  removeAllBtn.addEventListener('click', removeAllHandler);
+completeAllBtn.addEventListener('click', completeAllHandler);
+removeAllBtn.addEventListener('click', removeAllHandler);
 // Event listeners
 form.addEventListener('submit', formSubmitted);
