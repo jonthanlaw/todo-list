@@ -6,11 +6,6 @@ body {
   width: 100%;
 }
 
-.toDoDiv {
-  border: 1px solid black;
-  height: 10rem;
-}
-
 .todo__task {
   height: 1rem;
 }

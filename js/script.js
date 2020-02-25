@@ -269,7 +269,7 @@ const com_del_btn = '<button class = " col-12 col-sm-6 btn btn-outline-success b
 + '<button class = "col-12 col-sm-6 btn btn-outline-dark btn--removeAll">Remove All</button>';
 
 //Surrounding container for each to do item
-const leftToDoDiv = '<div class = ' + '"col-12 col-sm-6 col-md-4 col-lg-3 toDoDiv">';
+const leftToDoDiv = '<div class = ' + '"border border-secondary rounded col-12 toDoDiv">';
 const rightToDoDiv = '</div>';
 
 
