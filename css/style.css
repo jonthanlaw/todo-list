@@ -3,28 +3,20 @@ body {
 }
 
 .title-text-main {
-  color: #A3B18A;
+  color: #423B0B;
+}
+
+#todo__additem,
+#todo__submit {
+  width: 100%;
 }
 
 .btn-main {
   background-color: #A3B18A;
 }
 
-#todo__additem, #todo__submit {
-  width: 100%;
-}
-
 .toDoDiv {
   color: #2E3532;
-}
-
-.todo__task {
-  height: 1rem;
-}
-
-.todo__img {
-  height: 1rem;
-  width: 1rem;
 }
 
 /*# sourceMappingURL=style.css.map */

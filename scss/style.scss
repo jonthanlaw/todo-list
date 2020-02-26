@@ -1,40 +1,35 @@
-
 $bg-color: #DAD7CD;
-$title-text-color:#A3B18A;
+$title-text-color: #423B0B;
 $btn-main: #A3B18A;
-$text-color:#2E3532;
+$text-color: #2E3532;
 
-body{
-  background-color:$bg-color;
-//background-image: url("../background/background.jpg");
-
-
+body {
+  background-color: $bg-color; //background-image: url("../background/background.jpg");
 }
+// Title
 
-.title-text-main{
+.title-text-main {
   color: $title-text-color;
 }
+// Submit box
 
-.btn-main{
-
-    background-color: $btn-main;
-}
-
-
-#todo__additem, #todo__submit{
+#todo__additem,
+#todo__submit {
   width: 100%;
 }
 
-
-.toDoDiv{
-color: $text-color;
+// Added todo item text
+.todo__item{
 }
 
-.todo__task{
-  height: 1rem;
-}
 
-.todo__img{
-  height: 1rem;
-  width: 1rem;
+// Main Submit button
+
+.btn-main {
+  background-color: $btn-main;
+}
+//Container for todo items
+
+.toDoDiv {
+  color: $text-color;
 }

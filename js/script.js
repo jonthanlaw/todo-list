@@ -48,8 +48,8 @@ const formSubmitted = e => {
 
     //Containing Div for task and task editor
     toDoDiv += '<div class ="row">'
-    toDoDiv += '<div class = "col-9">';
-    toDoDiv += '<span class="todo__item" >' + itemToAdd + '</span>';
+    toDoDiv += '<div class = "col-9 py-2">';
+    toDoDiv += '<span class="todo__item font-weight-bold pr-1" >' + itemToAdd + '</span>';
     toDoDiv += '<span class="todo__editor">' +
       '<i class="fa fa-pencil"></i>' +
       '</span>';
@@ -65,7 +65,7 @@ const formSubmitted = e => {
     toDoDiv += rightToDoDiv;
 
     //Add form container
-    toDoDiv += '<div class="updateForm"></div>';
+    toDoDiv += '<div class="updateForm row pl-2 pb-2"></div>';
 
     //Add timestamp
     let d = new Date();
@@ -275,13 +275,13 @@ const rightToDoDiv = '</div>';
 
 
 // Add complete and remove button
-const complete = '<div class = "col-3"><span><i class="fa fa-check btn--complete"></i></span>';
-const remove = '<span><i class="fa fa-times btn--remove"></i></span></div>';
+const complete = '<div class = "col-3 py-2 d-flex justify-content-end"><span><i class="px-2 fa fa-lg fa-check btn--complete"></i></span>';
+const remove = '<span><i class=" fa fa-lg fa-times btn--remove"></i></span></div>';
 
 
 // Form for updating todo item when pencil clicked
-const update = '<input class="todo__updateText" type="text">' +
-  '<button  class="todo__updateSubmit">Update</button>';
+const update = '<input class="todo__updateText form-control col-sm-6" type="text" >' +
+  '<button  class="todo__updateSubmit btn btn-info col-sm-2">Update</button>';
 
 // Set Day names
 const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday",
